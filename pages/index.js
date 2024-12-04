@@ -1,10 +1,10 @@
-import Link from "next/link";
+import Spotlight from "@/components/Spotlight.jsx";
 
-export default function HomePage() {
+export default function HomePage({ artPieces }) {
   return (
     <div>
-      <h1>Hello from Next.js</h1>
-      <Link href="/gallery">Go to Gallery</Link>
+      <h1>A random Artpiece</h1>
+      <Spotlight artPieces={artPieces} />
     </div>
   );
 }
