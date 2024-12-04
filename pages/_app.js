@@ -1,5 +1,5 @@
 import GlobalStyle from "../styles";
-
+import Navigation from "@/components/Navigation";
 import useSWR from "swr";
 
 // fetcher-Funktion
@@ -25,6 +25,7 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Component {...pageProps} artPieces={data} />
+      <Navigation />
     </>
   );
 }
