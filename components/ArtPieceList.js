@@ -5,9 +5,11 @@ export default function ArtPieceList({ artPieces }) {
   return (
     <ul>
       {artPieces.map((piece) => {
-        <li key={piece.id}>
-          <ArtPiecePreview piece={piece} />
-        </li>;
+        return (
+          <li key={piece.slug}>
+            <ArtPiecePreview piece={piece} />
+          </li>
+        );
       })}
     </ul>
   );
