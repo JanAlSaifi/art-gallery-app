@@ -1,5 +1,5 @@
 import GlobalStyle from "../styles";
-import GalleryPage from "./gallery";
+
 import useSWR from "swr";
 
 // fetcher-Funktion
