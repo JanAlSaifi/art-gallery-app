@@ -1,5 +1,7 @@
 import ArtPiecePreview from "./ArtPiecePreview";
 
+function getRandomArtPiece() {}
+
 export default function Spotlight({ artPieces }) {
   return (
     <ul>

@@ -1,12 +1,10 @@
 import ArtPieceList from "../components/ArtPieceList";
-import Spotlight from "@/components/spotlightPage";
 
 export default function GalleryPage({ artPieces }) {
   return (
     <div>
       <h1>GALLERY</h1>
       <ArtPieceList artPieces={artPieces}></ArtPieceList>
-      <Spotlight />
     </div>
   );
 }
