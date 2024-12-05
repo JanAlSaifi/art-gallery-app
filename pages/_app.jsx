@@ -34,6 +34,7 @@ export default function App({ Component, pageProps }) {
       ...prevLiked,
       [slug]: !prevLiked[slug],
     }));
+    console.log("triggerd");
   }
 
   function handleAddEntry(newComment) {

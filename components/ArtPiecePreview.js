@@ -3,6 +3,7 @@ import HeartRed from "../assets/heartRed.svg";
 import Heart from "../assets/heart.svg";
 
 export default function ArtPiecePreview({ piece, onToggleLiked, isLiked }) {
+  console.log("Hier ist die Previewseite: ", isLiked);
   if (!piece) {
     return <p>Art piece data is missing!</p>;
   }
