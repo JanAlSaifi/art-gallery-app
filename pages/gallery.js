@@ -1,10 +1,10 @@
-import ArtPieceList from "../components/ArtPieceList";
+import Spotlight from "@/components/Spotlight.jsx";
 
-export default function GalleryPage({ artPieces }) {
+export default function HomePage({ artPieces }) {
   return (
     <div>
-      <h1>GALLERY</h1>
-      <ArtPieceList artPieces={artPieces} />
+      <h1>A random Artpiece</h1>
+      <Spotlight artPieces={artPieces} />
     </div>
   );
 }
