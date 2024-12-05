@@ -1,6 +1,6 @@
 import ArtPiecePreview from "./ArtPiecePreview";
 
-export default function Spotlight({ artPieces }) {
+export default function Spotlight({ artPieces, onToggleLiked, isLiked }) {
   if (!artPieces || artPieces.length === 0) {
     return <p>No art pieces available.</p>;
   }
@@ -9,10 +9,16 @@ export default function Spotlight({ artPieces }) {
   const randomArt = artPieces[randomIndex];
 
   return (
-    <ul>
-      <li>
-        <ArtPiecePreview piece={randomArt} />
-      </li>
-    </ul>
+    <>
+      <ul>
+        <li>
+          <ArtPiecePreview
+            piece={randomArt}
+            onToggleLiked={onToggleLiked}
+            isLiked={isLiked}
+          />
+        </li>
+      </ul>
+    </>
   );
 }
