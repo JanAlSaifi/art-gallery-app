@@ -1,7 +1,7 @@
 import ArtworkDetail from "@/components/ArtworkDetail";
 import { useRouter } from "next/router";
 
-export default function ArtworkPage({ artPieces }) {
+export default function ArtworkPage({ artPieces, onAddEntry, comments }) {
   const router = useRouter();
   const { artwork } = router.query;
 
@@ -11,5 +11,11 @@ export default function ArtworkPage({ artPieces }) {
 
   if (!artPiece) return <p>Art piece not found!</p>;
 
-  return <ArtworkDetail artPiece={artPiece} />;
+  return (
+    <ArtworkDetail
+      artPiece={artPiece}
+      onAddEntry={onAddEntry}
+      comments={comments}
+    />
+  );
 }

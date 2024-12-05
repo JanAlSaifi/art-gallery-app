@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
+import CommentForm from "./CommentForm";
 
-export default function ArtworkDetail({ artPiece }) {
+export default function ArtworkDetail({ artPiece, onAddEntry, comments }) {
   const router = useRouter();
 
   const goBack = () => {
@@ -36,7 +37,12 @@ export default function ArtworkDetail({ artPiece }) {
             : "N/A"}
         </p>
       )}
-
+      <div>{comments}</div>
+      <br />
+      <div>
+        <CommentForm onAddEntry={onAddEntry} />
+      </div>
+      <br />
       <button onClick={goBack}>BACK</button>
     </div>
   );

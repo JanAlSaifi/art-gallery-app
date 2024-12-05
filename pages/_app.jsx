@@ -16,6 +16,9 @@ export default function App({ Component, pageProps }) {
   const [isLiked, setIsLiked] = useLocalStorageState("isLiked", {
     defaultValue: {},
   });
+  const [comments, setComments] = useLocalStorageState("comments", {
+    defaultValue: [],
+  });
 
   const { data, error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art",
@@ -33,6 +36,19 @@ export default function App({ Component, pageProps }) {
     }));
   }
 
+  function handleAddEntry(newComment) {
+    setComments([newComment, ...comments]);
+  }
+
+  // handleOnSubmit [{ ...newComment }, ...comment]
+
+  // function handleOnSubmit(comment) {
+  //   setIsCommented((prevComment) => ({
+  //     ...prevComment,
+  //     [comment]: !prevComment[comment],
+  //   }));
+  // }
+
   return (
     <>
       <GlobalStyle />
@@ -41,6 +57,8 @@ export default function App({ Component, pageProps }) {
         artPieces={data}
         onToggleLiked={handleToggleFavoriteIcon}
         isLiked={isLiked}
+        onAddEntry={handleAddEntry}
+        comments={comments}
       />
       <Navigation />
     </>
