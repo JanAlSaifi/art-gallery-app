@@ -1,4 +1,4 @@
-import ArtPieceList from "../components/ArtPieceList";
+import ArtPieceList from "@/components/ArtPieceList";
 
 export default function GalleryPage({ artPieces, isLiked, onToggleLiked }) {
   return (

@@ -21,7 +21,6 @@ export default function App({ Component, pageProps }) {
     "https://example-apis.vercel.app/api/art",
     fetcher
   );
-  console.log("Fetched data:", data);
 
   if (error) return <div>Error loading data...</div>;
   if (isLoading) return <div>Loading...</div>;
