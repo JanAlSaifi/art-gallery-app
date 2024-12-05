@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import Navigation from "@/components/Navigation";
 import useSWR from "swr";
+import useLocalStorageState from "use-local-storage-state";
 
 // fetcher-Funktion
 export async function fetcher(url) {
@@ -12,6 +13,10 @@ export async function fetcher(url) {
 }
 
 export default function App({ Component, pageProps }) {
+  const [isLiked, setIsLiked] = useLocalStorageState("isLiked", {
+    defaultValue: {},
+  });
+
   const { data, error, isLoading } = useSWR(
     "https://example-apis.vercel.app/api/art",
     fetcher
@@ -21,10 +26,23 @@ export default function App({ Component, pageProps }) {
   if (error) return <div>Error loading data...</div>;
   if (isLoading) return <div>Loading...</div>;
 
+  // handleFavIcon
+  function handleToggleFavoriteIcon(slug) {
+    setIsLiked((prevLiked) => ({
+      ...prevLiked,
+      [slug]: !prevLiked[slug],
+    }));
+  }
+
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} artPieces={data} />
+      <Component
+        {...pageProps}
+        artPieces={data}
+        onToggleLiked={handleToggleFavoriteIcon}
+        isLiked={isLiked}
+      />
       <Navigation />
     </>
   );
