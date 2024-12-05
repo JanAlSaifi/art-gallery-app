@@ -1,6 +1,6 @@
 import ArtPiecePreview from "./ArtPiecePreview";
 
-export default function Spotlight({ artPieces }) {
+export default function Spotlight({ artPieces, onToggleLiked, isLiked }) {
   if (!artPieces) return null;
 
   const randomIndex = Math.floor(Math.random() * artPieces.length - 1);
@@ -10,7 +10,11 @@ export default function Spotlight({ artPieces }) {
     <>
       <ul>
         <li>
-          <ArtPiecePreview piece={randomArt} />
+          <ArtPiecePreview
+            piece={randomArt}
+            onToggleLiked={onToggleLiked}
+            isLiked={isLiked}
+          />
         </li>
       </ul>
     </>
